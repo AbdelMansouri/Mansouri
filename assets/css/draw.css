@@ -1,19 +1,29 @@
 :root {
-  /* Permet de modifier la taille et certaines couleur du pc */
+  /* Permet de modifier les tailles et certaines couleur */
   /*Computer*/
   --computer-height: 250px; /* 250px de base*/
-  --computer-computer-screen-color: rgb(255, 255, 255);
+  --computer-screen-color: rgb(255, 255, 255);
   --computer-background-color: rgb(255, 255, 255);
-  --computer-color: rgba(0, 0, 0, 1);
+  --computer-border-color: rgba(0, 0, 0, 1);
   /*Phone*/
   --phone-height: 135px; /* 135px de base*/
   --phone-screen-color: rgb(255, 255, 255);
+  /*Tablet*/
+  --tablet-height: 180px; /* 180px de base*/
+  --tablet-screen-color: rgb(255, 255, 255);
+  /*Tablet2*/
+  --tablet2-height: 180px; /* 180px de base*/
+  --tablet2-screen-color: rgb(255, 255, 255);
+  /*Laptop*/
+  --laptop-height: 160px; /* 160px de base*/
+  --laptop-screen-color: rgb(255, 255, 255);
+  --laptop-background-color: rgb(255, 255, 255);
 
   /* NE PAS TOUCHER: Calcul pour resize fonctionnel du computer */
   /*Computer*/
   --computer-foot-height: calc(var(--computer-height) * 0.2);
   --computer-foot-width: calc(var(--computer-height) * 0.32);
-  --computer-stand-height: calc(var(--computer-height) * 0.072);
+  --computer-stand-height: calc(var(--computer-height) * 0.052);
   --computer-stand-width: calc(var(--computer-height) * 0.48);
   /*Phone*/
   --phone-width: calc(var(--phone-height) * 0.5259);
@@ -23,106 +33,117 @@
   --phone-after-size: calc(var(--phone-height) * 0.037);
   --phone-screen-height: calc(var(--phone-height) * 0.7556);
   --phone-screen-top: calc(var(--phone-height) * 0.0963);
-  /*Phone*/
-  --tablette-height: 180px; /* 180px de base*/
 }
 
-/* Ordinateur */
+/*-------------------------------- Draw --------------------------------*/
+.draw {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  height: 80vh;
+  width: 100%;
+  background-color: rgb(215, 215, 215);
+}
+/*-------------------------------- Computer --------------------------------*/
 .computer {
   height: var(--computer-height);
   width: calc(var(--computer-height) * 1.6);
-  border: calc(var(--computer-height) * 0.012) solid var(--computer-color);
-  position: relative;
+  border: calc(var(--computer-height) * 0.012) solid
+    var(--computer-border-color);
   border-radius: 10px;
-  left: 50%;
+  position: relative;
+  background-color: var(--computer-background-color);
 }
 
 .computer::before {
   content: "";
-  position: absolute;
   height: calc(var(--computer-height) * 0.04);
   width: calc(var(--computer-height) * 0.04);
+  border: 2px solid var(--computer-border-color);
   border-radius: 50%;
-  border: 2px solid var(--computer-color);
+  position: absolute;
   top: calc(91% - (var(--computer-height) * 0.02));
   left: calc(50% - (var(--computer-height) * 0.02));
+  background-color: red;
 }
 
 .computer-screen {
   content: "";
   height: calc(var(--computer-height) * 0.76);
   width: calc(var(--computer-height) * 1.4);
-  border: calc(var(--computer-height) * 0.012) solid var(--computer-color);
+  border: calc(var(--computer-height) * 0.012) solid
+    var(--computer-border-color);
+  border-radius: 5px;
   position: absolute;
   left: 50%;
   top: calc(var(--computer-height) * 0.08);
   transform: translateX(-50%);
-  border-radius: 5px;
-  background-color: var(--computer-computer-screen-color);
+  background-color: var(--computer-screen-color);
 }
 
 .computer-foot {
+  height: var(--computer-foot-height);
+  width: var(--computer-foot-width);
   position: relative;
   top: 100%;
   left: calc(50% - (var(--computer-foot-width) / 2));
-  width: var(--computer-foot-width);
-  height: var(--computer-foot-height);
-  background-color: var(--computer-color);
+  background-color: var(--computer-border-color);
   clip-path: polygon(10% 0%, 90% 0%, 100% 100%, 0% 100%);
 }
 
 .computer-foot::before {
   content: "";
-  position: absolute;
-  top: calc(var(--computer-height) * 0.012);
-  left: calc(var(--computer-height) * 0.012);
   width: calc(
     var(--computer-foot-width) - calc(var(--computer-height) * 0.024)
   );
   height: calc(
     var(--computer-foot-height) - calc(var(--computer-height) * 0.024)
   );
+  position: absolute;
+  top: calc(var(--computer-height) * 0.012);
+  left: calc(var(--computer-height) * 0.012);
   background-color: var(--computer-background-color);
   clip-path: polygon(10% 0%, 90% 0%, 100% 100%, 0% 100%);
 }
 
 .computer-stand {
+  height: var(--computer-stand-height);
+  width: var(--computer-stand-width);
+  border: calc(var(--computer-height) * 0.012) solid
+    var(--computer-border-color);
+  border-radius: 10px;
   position: relative;
   top: calc(100% - 3px);
   left: calc(50% - (var(--computer-stand-width) / 2));
-  width: var(--computer-stand-width);
-  height: var(--computer-stand-height);
-  border: calc(var(--computer-height) * 0.012) solid var(--computer-color);
-  border-radius: 10px;
+  background-color: var(--computer-background-color);
 }
 
-/* Téléphone */
+/*-------------------------------- Téléphone --------------------------------*/
 .phone {
   height: var(--phone-height);
   width: var(--phone-width);
   border: 3px solid black;
   border-radius: var(--phone-border-radius);
   position: relative;
-  left: calc(var(--phone-width) * -0.7024);
 }
 
 .phone::before {
   content: "";
-  position: absolute;
-  border: 1px solid rgb(0, 0, 0);
   width: var(--phone-before-width);
+  border: 1px solid rgb(0, 0, 0);
+  position: absolute;
+  top: var(--phone-before-top);
   left: 50%;
   transform: translateX(-50%);
-  top: var(--phone-before-top);
 }
 
 .phone::after {
   content: "";
-  position: absolute;
   height: var(--phone-after-size);
   width: var(--phone-after-size);
   border: 2px solid rgb(0, 0, 0);
   border-radius: 50%;
+  position: absolute;
   top: 91.5%;
   left: 50%;
   transform: translateX(-50%);
@@ -133,37 +154,95 @@
   width: var(--phone-width);
   border: 3px solid black;
   position: relative;
-  left: -3px;
   top: var(--phone-screen-top);
+  left: -3px;
   background-color: var(--phone-screen-color);
 }
 
-/* Cercle code */
+/*------------------------------- Cercle code -------------------------------*/
 .html-circle {
   height: 120px;
   width: 120px;
-  position: relative;
-  left: -30%;
+  border: 3px solid black;
   border-radius: 50%;
-  border: 3px solid black;
+  font-size: 3.5rem;
 }
 
-/* Tablette */
-.tablette {
-  position: relative;
-  height: var(--tablette-height);
-  width: calc(var(--tablette-height) * 0.877);
+.html-circle span {
+  height: calc(100% - 10%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*--------------------------------- Tablet -----------------------------------*/
+.tablet {
+  height: var(--tablet-height);
+  width: calc(var(--tablet-height) * 0.877);
+  border: 3px solid black;
   border-radius: 10px;
-  border: 3px solid black;
 }
 
-.tablette-screen {
+.tablet-screen {
+  height: calc(var(--tablet-height) * 0.85);
+  width: calc(var(--tablet-height) * 0.877);
+  border: 3px solid rgb(44, 37, 37);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
   position: relative;
   top: calc(15% - 3px);
   left: -3px;
-  height: 153px;
-  width:158px;
+  background-color: var(--tablet-screen-color);
+}
+
+/*--------------------------------- Tablet2 ----------------------------------*/
+.tablet2 {
+  height: var(--tablet2-height);
+  width: calc(var(--tablet2-height) * 1.18);
+  border: 3px solid black;
+  border-radius: 10px;
+}
+
+.tablet-screen2 {
+  height: calc(var(--tablet2-height) * 0.85);
+  width: calc(var(--tablet2-height) * 1.18);
+  border: 3px solid black;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
+  position: relative;
+  top: calc(15% - 3px);
+  left: -3px;
+  background-color: var(--tablet2-screen-color);
+}
+
+/*-------------------------------- Laptop --------------------------------*/
+.laptop {
+  height: var(--laptop-height);
+  width: calc(var(--laptop-height) * 1.6);
   border: 3px solid black;
+  border-radius: 10px;
+  position: relative;
+}
+
+.laptop-screen {
+  height: calc(var(--laptop-height) * 0.85);
+  width: calc(var(--laptop-height) * 1.45);
+  border: 3px solid black;
+  border-radius: 5px;
+  position: absolute;
+  top: calc(var(--laptop-height) * 0.05);
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--laptop-screen-color);
+}
+
+.laptop-keyboard {
+  height: 15px;
+  width: calc(var(--laptop-height) * 1.8);
+  border: 3px solid black;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  position: absolute;
+  top: 102%;
+  left: -15px;
 }
