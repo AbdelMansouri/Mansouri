@@ -131,13 +131,13 @@ body {
 
 /*---------------------------------- Header ----------------------------------*/
 header {
+  height: 6vh;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: fixed;
-  width: 100%;
   background-color: black;
-  height: 6vh;
 }
 
 header nav ul {
@@ -146,9 +146,10 @@ header nav ul {
 }
 
 header nav ul li a {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   color: white;
   padding: 0 1rem;
+  text-decoration: none;
 }
 
 .logo {
@@ -157,6 +158,7 @@ header nav ul li a {
 /*---------------------------------- MAIN ----------------------------------*/
 /* HERO header */
 #hero-header {
-  height: 100vh;
+  height: 94vh;
+  padding-top: 6vh;
 }
 
