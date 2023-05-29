@@ -1,6 +1,6 @@
 :root {
   /* Permet de modifier les tailles et couleurs */
-  --draw-scale: 250px;
+  --draw-scale: 200px;
   --border-draw : 2px;
   /*Computer*/
   --computer-height: calc(var(--draw-scale) * 1); /* 250px de base*/
