@@ -70,9 +70,11 @@ h2 {
   font-size: 1.5rem;
 }
 
-
-
 .draw {
   display: none;
+}
+
+.who {
+  gap: 2rem;
 }
 
